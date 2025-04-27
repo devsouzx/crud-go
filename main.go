@@ -23,6 +23,8 @@ func main() {
 	service := service.NewUserDomainService()
 	userController := controller.NewUserControllerInterface(service)
 
+	mongodb.NewMongoDBConnection(context.Background())
+
 	router := gin.Default()
 
 	routes.InitRoutes(&router.RouterGroup, userController)
