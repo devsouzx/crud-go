@@ -6,6 +6,10 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
+const (
+	MONGODB_USER_DB = "MONGODB_USER_DB"
+)
+
 func NewUserRepository(
 	database *mongo.Database,
 ) UserRepository {
@@ -13,7 +17,6 @@ func NewUserRepository(
 		database,
 	}
 }
-
 
 type userRepository struct {
 	databaseConnection *mongo.Database
