@@ -6,9 +6,7 @@ import (
 
 	"github.com/devsouzx/crud-go/src/configuration/database/mongodb"
 	"github.com/devsouzx/crud-go/src/configuration/logger"
-	"github.com/devsouzx/crud-go/src/controller"
 	"github.com/devsouzx/crud-go/src/controller/routes"
-	"github.com/devsouzx/crud-go/src/model/service"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -20,10 +18,13 @@ func main() {
 		panic("Error loading .env file")
 	}
 
-	service := service.NewUserDomainService()
-	userController := controller.NewUserControllerInterface(service)
+	database, err := mongodb.NewMongoDBConnection(context.Background())
+	if err != nil {
+		logger.Error("Error trying to connect to MongoDB", err)	
+		panic(err)
+	}
 
-	mongodb.NewMongoDBConnection(context.Background())
+	userController := initDependencies(database)
 
 	router := gin.Default()
 

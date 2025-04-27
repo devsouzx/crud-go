@@ -1,8 +1,6 @@
 package model
 
 import (
-	"crypto/md5"
-	"encoding/hex"
 	"encoding/json"
 	"fmt"
 )
@@ -46,11 +44,4 @@ func (ud *userDomain) GetName() string {
 
 func (ud *userDomain) GetAge() int8 {
 	return ud.Age
-}
-
-func (ud *userDomain) EncryptPassword() {
-	hash := md5.New()
-	defer hash.Reset()
-	hash.Write([]byte(ud.Password))
-	ud.Password = hex.EncodeToString(hash.Sum(nil))
 }
