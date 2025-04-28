@@ -5,15 +5,11 @@ import (
 
 	"github.com/devsouzx/crud-go/src/configuration/logger"
 	"github.com/devsouzx/crud-go/src/controller/model/request"
-	"github.com/devsouzx/crud-go/src/controller/validation"
+	"github.com/devsouzx/crud-go/src/configuration/validation"
 	"github.com/devsouzx/crud-go/src/model"
 	"github.com/devsouzx/crud-go/src/view"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-)
-
-var (
-	UserDomainInterface model.UserDomainInterface
 )
 
 func (uc *userControllerInterface) CreateUser(c *gin.Context) {

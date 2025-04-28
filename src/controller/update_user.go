@@ -6,7 +6,7 @@ import (
 	"github.com/devsouzx/crud-go/src/configuration/logger"
 	"github.com/devsouzx/crud-go/src/configuration/rest_err"
 	"github.com/devsouzx/crud-go/src/controller/model/request"
-	"github.com/devsouzx/crud-go/src/controller/validation"
+	"github.com/devsouzx/crud-go/src/configuration/validation"
 	"github.com/devsouzx/crud-go/src/model"
 	"github.com/gin-gonic/gin"
 	"go.mongodb.org/mongo-driver/bson/primitive"
